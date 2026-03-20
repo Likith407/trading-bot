@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trading Bot — Status</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0b0f1a;
+      color: #e2e8f0;
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      background: #131929;
+      border: 1px solid #1e2d45;
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 560px;
+      width: 100%;
+      box-shadow: 0 0 40px rgba(0,200,150,0.05);
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+
+    .logo {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #00c896, #0077ff);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .title h1 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #f0f4ff;
+    }
+
+    .title p {
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #0d2218;
+      border: 1px solid #00c89640;
+      color: #00c896;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: #00c896;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #475569;
+      margin-bottom: 12px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .info-box {
+      background: #0d1526;
+      border: 1px solid #1e2d45;
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+
+    .info-box .label {
+      font-size: 11px;
+      color: #475569;
+      margin-bottom: 4px;
+    }
+
+    .info-box .value {
+      font-size: 14px;
+      font-weight: 600;
+      color: #cbd5e1;
+    }
+
+    .order-types {
+      margin-bottom: 28px;
+    }
+
+    .order-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #1a2438;
+    }
+
+    .order-row:last-child { border-bottom: none; }
+
+    .order-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: #94a3b8;
+    }
+
+    .tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+
+    .tag.green  { background: #0d2218; color: #00c896; border: 1px solid #00c89640; }
+    .tag.blue   { background: #0d1a2e; color: #60a5fa; border: 1px solid #60a5fa40; }
+    .tag.yellow { background: #1a1500; color: #fbbf24; border: 1px solid #fbbf2440; }
+
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #334155;
+      margin-top: 28px;
+    }
+
+    .footer a {
+      color: #475569;
+      text-decoration: none;
+    }
+
+    .footer a:hover { color: #00c896; }
+
+    .timestamp {
+      font-size: 12px;
+      color: #334155;
+      text-align: right;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+
+    <div class="header">
+      <div class="logo">🤖</div>
+      <div class="title">
+        <h1>Binance Futures Trading Bot</h1>
+        <p>USDT-M Testnet — Python CLI</p>
+      </div>
+    </div>
+
+    <div class="status-badge">
+      <div class="dot"></div>
+      Bot Operational
+    </div>
+
+    <div class="section-label">Configuration</div>
+    <div class="info-grid">
+      <div class="info-box">
+        <div class="label">Network</div>
+        <div class="value">Testnet</div>
+      </div>
+      <div class="info-box">
+        <div class="label">Market</div>
+        <div class="value">USDT-M Futures</div>
+      </div>
+      <div class="info-box">
+        <div class="label">Language</div>
+        <div class="value">Python 3.x</div>
+      </div>
+      <div class="info-box">
+        <div class="label">Auth</div>
+        <div class="value">HMAC-SHA256</div>
+      </div>
+    </div>
+
+    <div class="section-label">Supported Order Types</div>
+    <div class="order-types">
+      <div class="order-row">
+        <span class="order-name">Market Order</span>
+        <span class="tag green">✓ Live</span>
+      </div>
+      <div class="order-row">
+        <span class="order-name">Limit Order</span>
+        <span class="tag green">✓ Live</span>
+      </div>
+      <div class="order-row">
+        <span class="order-name">Stop-Market Order</span>
+        <span class="tag yellow">Bonus</span>
+      </div>
+      <div class="order-row">
+        <span class="order-name">BUY / SELL Sides</span>
+        <span class="tag blue">Supported</span>
+      </div>
+    </div>
+
+    <div class="section-label">GitHub</div>
+    <div class="info-box" style="margin-bottom:8px">
+      <div class="label">Repository</div>
+      <div class="value">
+        <a href="https://github.com/Likith407/trading-bot"
+           target="_blank"
+           style="color:#60a5fa; text-decoration:none;">
+          github.com/Likith407/trading-bot
+        </a>
+      </div>
+    </div>
+
+    <div class="timestamp" id="ts"></div>
+  </div>
+
+  <div class="footer">
+    Built with Python · Binance Futures Testnet API
+  </div>
+
+  <script>
+    const el = document.getElementById('ts');
+    const now = new Date();
+    el.textContent = 'Page loaded: ' + now.toLocaleString();
+  </script>
+</body>
+</html>
