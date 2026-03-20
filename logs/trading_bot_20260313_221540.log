@@ -1,0 +1,7 @@
+2026-03-13 22:15:40 | INFO     | trading_bot | Logging started — writing to logs\trading_bot_20260313_221540.log
+2026-03-13 22:15:40 | DEBUG    | trading_bot.client | BinanceClient ready (base_url=https://testnet.binancefuture.com)
+2026-03-13 22:15:40 | INFO     | trading_bot.orders | Placing MARKET order: BUY BTCUSDT qty=0.001
+2026-03-13 22:15:40 | DEBUG    | trading_bot.client | Placing order with params: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001'}
+2026-03-13 22:15:40 | DEBUG    | trading_bot.client | → POST /fapi/v1/order  params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001', 'timestamp': 1773420340995, 'recvWindow': 5000, 'signature': '60efb40644be3500370dca269999cd9199a98c4eae6ecb4ceab70208cffa1079'}
+2026-03-13 22:15:42 | DEBUG    | trading_bot.client | ← HTTP 400  body={"code":-4164,"msg":"Order's notional must be no smaller than 100 (unless you choose reduce only)."}
+2026-03-13 22:15:42 | ERROR    | trading_bot | Binance API error [-4164]: Order's notional must be no smaller than 100 (unless you choose reduce only).
